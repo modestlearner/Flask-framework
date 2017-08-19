@@ -1,0 +1,45 @@
+<html>
+	<head><title>VIEWSPECIFIC</title>
+	</head>
+
+	<body>
+		<h2>DATA IN DATABASE</h2>
+		<table>
+			<tr>
+				<th>NAME</th>
+
+				<th>CONTACT</th>
+				<th>EMAIL</th>
+
+			</tr>
+
+
+			{% for p in  post %}
+				<tr>
+					<td>{{p.name}}</td>
+
+					<td>{{p.contact}}</td>
+					<td>{{p.email}}</td>
+
+				</tr>
+			{% endfor %}
+			</table>
+
+			{% for m in get_flashed_messages() %}
+				{{m}}
+			{% endfor %}
+
+			{% if 'logged_in' in session %}
+			<p>Click <a href='/logout'> here </a>to logout</p>
+			{% endif %}
+
+			{% if 'logged_in' in session %}
+			<p>Click <a href='/form'> here </a>to enter data</p>
+			{% endif %}
+
+			{% if 'logged_in' in session %}
+			<p>Click <a href='/view'> here </a>to view database</p>
+			{% endif %}
+
+	</body>
+</html>

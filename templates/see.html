@@ -1,0 +1,39 @@
+<html>
+	<head><title>see</title>
+	</head>
+
+	<body>
+		<h2>DATA IN DATABASE</h2>
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+				<th>CONTACT</th>
+			</tr>
+
+
+			{% for p in  post %}
+				<tr>
+
+					<td>{{p.name}}</td>
+
+
+
+			{% endfor %}
+			</table>
+
+			{% for m in get_flashed_messages() %}
+				{{m}}
+			{% endfor %}
+
+			{% if 'logged_in' in session %}
+				<p>Click <a href='/logout'> here </a>to logout</p>
+			{% endif %}
+
+			{% if 'logged_in' in session %}
+				<p>Click <a href='/form'> here </a>to enter data</p>
+			{% endif %}
+
+	</body>
+</html>

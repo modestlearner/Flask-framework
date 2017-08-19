@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>LOGIN</title>
+	</head>
+
+
+	<body>
+		<h2>PLEASE LOGIN</h2>
+		<div>
+			<form method="POST" action="">
+				<input type="text" name="username" placeholder="Enter username" value="{{request.form.username}}">
+				<input type="password" name="pass" placeholder="Enter password" value="{{request.form.pass}}">
+				<input type="submit" name="Login" value="submit">
+			</form>
+			{% if error %}
+				<p><strong>ERROR:</strong>{{error}}</p>
+			{% endif %}
+
+			{% for m in get_flashed_messages() %}
+				{{m}}
+			{% endfor %}
+
+		</div>
+	</body>
+</html>

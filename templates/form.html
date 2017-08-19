@@ -1,0 +1,43 @@
+<html>
+	<head><title>FORM</title>
+	</head>
+	
+	<body>
+		<div>
+			<h1>PLEASE FILL THE FORM</h1>
+			<form method="POST">
+			<table>
+				<tr>
+					<th>NAME</th>
+					<td><input type="text" name="name" placeholder="Enter Name" value='{{request.form.name}}'></td>
+				</tr>
+				
+				<tr>
+					<th>EMAIL</th>
+					<td><input type="text" name="email" placeholder="Enter Email" value="{{request.form.email}}"></td>
+				</tr>
+				
+				<tr>
+					<th>CONTACT</th>
+					<td><input type="number" name="contact" placeholder="Enter mobile number" value="{{request.form.contact}}"></td>
+				</tr>
+				
+				<tr>
+					<td><input type="submit" value="submit"><td>
+				</tr>
+			</table>
+			</form>
+			{% for m in get_flashed_messages() %}
+				{{m}}
+			{% endfor %}
+			
+			{% if 'logged_in' in session %}
+			<p>Click <a href='/logout'> here </a>to logout</p>
+			{% endif %}
+			
+			{% if 'logged_in' in session %}
+			<p>Click <a href='/view'> here </a>to view DATABASE DATA</p>
+			{% endif %}
+		</div>
+	</body>
+</html>

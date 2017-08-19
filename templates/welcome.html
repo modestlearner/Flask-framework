@@ -1,0 +1,17 @@
+<html>
+	<head><title>Welcome</title>
+	</head>
+	
+	<body>
+		<div>
+			<h1>Welcome to Flask</h1>
+			<br>
+			{% for message in get_flashed_messages() %}
+				{{message}}
+			{% endfor %}
+			{% if 'logged_in' in session %}
+			<p>Click <a href='/logout'>here</a> to Logout</p>
+			{% endif %}
+		</div>
+	</body>
+</html>
